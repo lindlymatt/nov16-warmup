@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   userSubmit.addEventListener('click', () => {
     let userGuess = userInput.value;
-    
+
     if (userGuess !== '') {
       if (userGuess > randomNumber) {
         userPrompt.innerText = 'Too high! Go lower.';
@@ -51,10 +51,15 @@ document.addEventListener("DOMContentLoaded", function() {
       }
       else {
         winnerPrompt.style.display = 'inline';
+        userPrompt.innerText = `Correct guess of ${userGuess}! Play again?`;
       }
     }
     else {
       userPrompt.innerText = "No value entered, enter a valid number!";
     }
+  });
+
+  winnerPrompt.addEventListener('click', () => {
+    winnerPrompt.style.display = 'none';
   });
 });
