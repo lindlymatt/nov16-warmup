@@ -22,12 +22,12 @@ var userSubmit;
 var userPrompt;
 
 document.addEventListener("DOMContentLoaded", function() {
-  console.log('Yes!');
   randomNumber = Math.floor(Math.random() * (100 - 1) + 1);
+  console.log(randomNumber);
   userPrompt = document.querySelector('.btn-one');
-  userInput = document.querySelector('.btn-two').innerText = '';
+  userInput = document.querySelector('.btn-two');
   userSubmit = document.querySelector('.btn-three');
-  console.log(userPrompt, userInput, userSubmit);
   userPrompt.innerText = 'Guess a number! No limits, just guess.';
+  userInput.innerText = '';
   userSubmit.innerText = 'Guess!';
 });
