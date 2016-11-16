@@ -1,10 +1,5 @@
 'use strict';
 
-var randomNumber = 0;
-var userInput;
-var userSubmit;
-var userPrompt;
-
 // Steps:
 //    1. Page generates random number on load.
 //    2. Input number.
@@ -19,8 +14,20 @@ var userPrompt;
 
 // Stretch:
 //  1. Track user attempts to show how many fails.
+//  2. Shake screen if an incorrect guess.
+
+var randomNumber = 0;
+var userInput;
+var userSubmit;
+var userPrompt;
 
 document.addEventListener("DOMContentLoaded", function() {
+  console.log('Yes!');
   randomNumber = Math.floor(Math.random() * (100 - 1) + 1);
-  
+  userPrompt = document.getElementsByClassName('.btn-one');
+  userInput = document.getElementsByClassName('.btn-two');
+  userSubmit = document.getElementsByClassName('.btn-three');
+
+  userPrompt.innerText = 'Guess a number! No limits, just guess.';
+  userSubmit.innerText = 'Is your lucky number ' + userInput.innerText + ' ?';
 });
