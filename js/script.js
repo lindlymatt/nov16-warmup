@@ -46,10 +46,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (userGuess !== '') {
       if (userGuess > randomNumber) {
-        userPrompt.innerText = `Too high! Go lower. Attempts: ${iterator}.`;
+        userPrompt.innerText = `Too high! Go lower.`;
+        userPrompt.addEventListener('mouseenter', () => {
+          userPrompt.innerText = `Attempts: ${iterator}.`;
+          userPrompt.addEventListener('mouseleave', () => {
+            userPrompt.innerText = `Too high! Go lower.`;
+          });
+        });
       }
       else if (userGuess < randomNumber) {
-        userPrompt.innerText = `Too low! Go higher.  Attempts: ${iterator}.`;
+        userPrompt.innerText = `Too low! Go higher.`;
+        userPrompt.addEventListener('mouseenter', () => {
+          userPrompt.innerText = `Attempts: ${iterator}.`;
+          userPrompt.addEventListener('mouseleave', () => {
+            userPrompt.innerText = `Too low! Go higher.`;
+          });
+        });
       }
       else {
         winnerPrompt.style.display = 'inline';
