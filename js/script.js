@@ -20,6 +20,7 @@ var randomNumber = 0;
 var userInput;
 var userSubmit;
 var userPrompt;
+var winnerPrompt;
 
 document.addEventListener("DOMContentLoaded", function() {
   randomNumber = Math.floor(Math.random() * (100 - 1) + 1);
@@ -27,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
   userPrompt = document.querySelector('.btn-one');
   userInput = document.querySelector('.btn-two');
   userSubmit = document.querySelector('.btn-three');
+  winnerPrompt = document.querySelector('#lightbox');
   userPrompt.innerText = 'Guess a number!';
   userSubmit.innerText = 'Guess!';
 
@@ -37,5 +39,22 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 
-  userSubmit.addEventListener('')
+  userSubmit.addEventListener('click', () => {
+    let userGuess = userInput.value;
+    
+    if (userGuess !== '') {
+      if (userGuess > randomNumber) {
+        userPrompt.innerText = 'Too high! Go lower.';
+      }
+      else if (userGuess < randomNumber) {
+        userPrompt.innerText = 'Too low! Go higher.';
+      }
+      else {
+        winnerPrompt.style.display = 'inline';
+      }
+    }
+    else {
+      userPrompt.innerText = "No value entered, enter a valid number!";
+    }
+  });
 });
