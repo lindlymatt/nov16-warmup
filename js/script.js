@@ -28,7 +28,6 @@ document.addEventListener("DOMContentLoaded", function() {
   userInput = document.querySelector('.btn-two');
   userSubmit = document.querySelector('.btn-three');
   userPrompt.innerText = 'Guess a number!';
-  userInput.innerText = '';
   userSubmit.innerText = 'Guess!';
 
   userPrompt.addEventListener('mouseenter', () => {
@@ -37,4 +36,6 @@ document.addEventListener("DOMContentLoaded", function() {
       userPrompt.innerText = 'Guess a number!';
     });
   });
+
+  userSubmit.addEventListener('')
 });
