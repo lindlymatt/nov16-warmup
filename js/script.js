@@ -27,7 +27,14 @@ document.addEventListener("DOMContentLoaded", function() {
   userPrompt = document.querySelector('.btn-one');
   userInput = document.querySelector('.btn-two');
   userSubmit = document.querySelector('.btn-three');
-  userPrompt.innerText = 'Guess a number! No limits, just guess.';
+  userPrompt.innerText = 'Guess a number!';
   userInput.innerText = '';
   userSubmit.innerText = 'Guess!';
+
+  userPrompt.addEventListener('mouseenter', () => {
+    userPrompt.innerText = 'Any number! No limits.';
+    userPrompt.addEventListener('mouseleave', () => {
+      userPrompt.innerText = 'Guess a number!';
+    });
+  });
 });
