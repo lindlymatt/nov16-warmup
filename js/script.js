@@ -24,10 +24,10 @@ var userPrompt;
 document.addEventListener("DOMContentLoaded", function() {
   console.log('Yes!');
   randomNumber = Math.floor(Math.random() * (100 - 1) + 1);
-  userPrompt = document.getElementsByClassName('.btn-one');
-  userInput = document.getElementsByClassName('.btn-two');
-  userSubmit = document.getElementsByClassName('.btn-three');
-
+  userPrompt = document.querySelector('.btn-one');
+  userInput = document.querySelector('.btn-two').innerText = '';
+  userSubmit = document.querySelector('.btn-three');
+  console.log(userPrompt, userInput, userSubmit);
   userPrompt.innerText = 'Guess a number! No limits, just guess.';
-  userSubmit.innerText = 'Is your lucky number ' + userInput.innerText + ' ?';
+  userSubmit.innerText = 'Guess!';
 });
