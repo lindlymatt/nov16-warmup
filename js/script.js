@@ -17,6 +17,7 @@
 //  2. Shake screen if an incorrect guess.
 
 var randomNumber = 0;
+var iterator = 0;
 var userInput;
 var userSubmit;
 var userPrompt;
@@ -40,18 +41,23 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   userSubmit.addEventListener('click', () => {
+    iterator++;
     let userGuess = userInput.value;
 
     if (userGuess !== '') {
       if (userGuess > randomNumber) {
-        userPrompt.innerText = 'Too high! Go lower.';
+        userPrompt.innerText = `Too high! Go lower. Attempts: ${iterator}.`;
       }
       else if (userGuess < randomNumber) {
-        userPrompt.innerText = 'Too low! Go higher.';
+        userPrompt.innerText = `Too low! Go higher.  Attempts: ${iterator}.`;
       }
       else {
         winnerPrompt.style.display = 'inline';
-        userPrompt.innerText = `Correct guess of ${userGuess}! Play again?`;
+        userPrompt.innerText = `Correct guess of ${userGuess}!  Attempts: ${iterator}. Play again?`;
+        userSubmit.innerText = 'Click to PLAY AGAIN!';
+        userSubmit.addEventListener('click', () => {
+          window.reload();
+        });
       }
     }
     else {
